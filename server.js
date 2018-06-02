@@ -8,7 +8,7 @@ config.entry.unshift('webpack-hot-middleware/client?reload=true');
 
 let app = new (require('express'))();
 
-let port = 9000;
+let port = 9002;
 
 let compiler = webpack(config);
 

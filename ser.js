@@ -4,7 +4,7 @@ const config = require('./webpack.config');
 
 let compiler = webpack(config);
 
-let port = 9000;
+let port = 9002;
 
 config.entry.unshift(
 	`webpack-dev-server/client?http://localhost:${port}`,
