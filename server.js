@@ -4,7 +4,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config');
 
-config.entry.unshift('webpack-hot-mmiddleware/client?reload=true');
+config.entry.unshift('webpack-hot-middleware/client?reload=true');
 
 let app = new (require('express'))();
 

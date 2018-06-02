@@ -14,18 +14,18 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /.\js$/,
-				use: ['bable-loader'],
+				test: /\.js$/,
+				use: ['babel-loader'],
 				include: [
 					path.resolve(__dirname, './src')
 				]
 			},
 			{
-				test: /.\(css|less)$/,
+				test: /\.(css|less)$/,
 				use: ['style-loader','css-loader','less-loader']
 			},
 			{
-				test: /.\(jpg|png|svg|jpeg|gif)$/,
+				test: /\.(jpg|png|svg|jpeg|gif)$/,
 				use: ['file-loader']
 			}
 		]
@@ -37,11 +37,13 @@ module.exports = {
 			templete: './src/index.html'
 		})
 	],
-	resolve: [
-		'node_modules',
-		path.resolve(__dirname, './src/common'),
-		path.resolve(__dirname,'./src/components')
-	]
+	resolve: {
+		modules: [
+			'node_modules',
+			path.resolve(__dirname, './src/common'),
+			path.resolve(__dirname,'./src/components')
+		]
+	},
 
 	devtool: 'cheap-module-eval-source-map'
 }
