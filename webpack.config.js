@@ -6,11 +6,13 @@ module.exports = {
 	entry: [
 		'./src/app.js'
 	],
+
 	output: {
 		filename: 'main.js',
 		path: path.resolve(__dirname, 'dist/assets'),
 		publicPath: '/assets/'
 	},
+
 	module: {
 		rules: [
 			{
@@ -21,8 +23,8 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(css|less)$/,
-				use: ['style-loader','css-loader','less-loader']
+				test: /\.css$/,
+				use: ['style-loader','css-loader']
 			},
             {
                 test: /\.(png|jpg|jpeg|gif)$/,
@@ -50,13 +52,21 @@ module.exports = {
             }
 		]
 	},
+
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			templete: './src/index.html'
-		})
+		}),
+		new webpack.ProvidePlugin({
+            React: 'react',
+            ReactDOM: 'react-dom',
+            Component: ['react', 'Component'],
+            PT: 'prop-types'
+        })
 	],
+
 	resolve: {
 		modules: [
 			'node_modules',
